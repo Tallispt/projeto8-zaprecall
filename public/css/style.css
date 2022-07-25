@@ -156,7 +156,8 @@ ul li .check-box {
     font-size: 18px;
     line-height: 22px;
     color: #333333;
-    height: 70px;
+    max-height: 70px;
+    min-height: 70px;
     width: 100%;
     background: #FFFFFF;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
@@ -165,7 +166,34 @@ ul li .check-box {
     justify-content: center;
     align-items: center;
     position: fixed;
-    bottom: 0
+    bottom: 0;
+    transition: all 0.8s;
+    overflow-y: hidden;
+}
+
+.footer-transition {
+    max-height: 170px;
+    padding-top: 14px;
+}
+
+
+.footer .final {
+    opacity: 0;
+    top: 0;
+    position: absolute;
+    transition: all 0.8s;
+    max-width: 222px;
+    text-align: center;
+}
+
+.footer .final-transition {
+    opacity: 1;
+    position: initial;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 10px;
 }
 
 .button,

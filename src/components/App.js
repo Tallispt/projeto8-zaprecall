@@ -3,6 +3,7 @@ import { useState } from "react"
 import Initial from "./Initial"
 import Main from "./Main"
 
+let cardsSorted;
 let cards = [
     { question: 'O que é JSX?', answer: 'Uma extensão de linguagem do JavaScript.' },
     { question: 'O React é _', answer: 'uma biblioteca JavaScript para construção de interfaces.' },
@@ -19,7 +20,7 @@ export default function App() {
 
     function changeScreen() {
         setIsInitial(!isInitial)
-        cards = cards.sort(() => Math.random() - 0.5).slice(4)
+        cardsSorted = cards.sort(() => Math.random() - 0.5).slice(4)
     }
 
 
@@ -28,7 +29,7 @@ export default function App() {
             {
                 isInitial ?
                     <Initial changeScreen={changeScreen} /> :
-                    <Main cards={cards} />
+                    <Main cards={cardsSorted} />
             }
         </>
     )

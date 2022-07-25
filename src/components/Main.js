@@ -8,6 +8,7 @@ function Cards(props) {
     const [cardTopShow, setCardTopShow] = useState('card-top')
     const [questionCard, setQuestionCard] = useState('question-card hide')
 
+
     function showCard() {
         if (!showQuestion) {
             setTransf(transf === 'card' ? 'card card-transition' : 'card')
@@ -32,6 +33,7 @@ function Cards(props) {
             setAnswerd('checkmark-circle')
             props.setAnswers([...props.answers, 'checkmark-circle'])
         }
+        if (props.numCards === 3) props.setFinished(true)
     }
 
     return (
@@ -68,6 +70,7 @@ function Cards(props) {
 export default function Main({ cards }) {
     const [numCards, setNumCards] = useState(0)
     const [answers, setAnswers] = useState([])
+    const [finished, setFinished] = useState(false)
 
     return (
         <div className="main">
@@ -76,9 +79,9 @@ export default function Main({ cards }) {
                 <img src='asset/zaprecall.png' width='203px' height='44px' />
             </div>
             <ul>
-                {cards.map((card, index) => <Cards key={index} card={card} index={index} setNumCards={setNumCards} numCards={numCards} setAnswers={setAnswers} answers={answers} />)}
+                {cards.map((card, index) => <Cards key={index} card={card} index={index} setNumCards={setNumCards} numCards={numCards} setAnswers={setAnswers} answers={answers} setFinished={setFinished} />)}
             </ul>
-            <Footer numCards={numCards} answers={answers} />
+            <Footer numCards={numCards} answers={answers} finished={finished} />
         </div>
     )
 }
