@@ -4,7 +4,7 @@
 
 ## Features
 
-- 
+- [x] Question cards
 
 ## Technologies Used
 
@@ -13,8 +13,6 @@
 - [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
 
 ## Usage
-Clone the repository with git command.  
-`git clone` or `git fork`
 
 Install libraries  
 `npm install`  
